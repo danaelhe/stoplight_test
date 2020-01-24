@@ -1,0 +1,17 @@
+title: Bird
+type: object
+x-tags:
+  - pet
+description: A single bird.
+properties:
+  id:
+    type: number
+  name:
+    type: string
+  breed:
+    type: string
+x-examples:
+  example-1:
+    id: 1
+    name: zazu
+    breed: parrot
