@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  title: people_microservice
+  version: '1.0'
+  contact:
+    name: Dana
+    email: elhertani@gmail.com
+  description: 'Use this API to create, delete, update, and query the people in the addressbook. '
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /people:
+    get:
+      summary: Lists all People
+      tags:
+        - person
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/person'
+              examples:
+                example-1:
+                  value:
+                    - '1':
+                        id: 1
+                        name: Dana Elhertani
+                        pet:
+                          id: 3
+                          name: woody
+                          breed: golden retriever
+                      '2':
+                        id: 2
+                        name: Yantian You
+                        pet:
+                          id: 1
+                          name: pepper
+                          breed: dalmation
+          headers:
+            x-net:
+              schema:
+                type: string
+              description: A link to the next page of responses
+      operationId: get-people
+      description: Returns a list of people
+components:
+  schemas:
+    person:
+      title: person
+      type: object
+      x-tags:
+        - person
+      description: A single person.
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        pet:
+          $ref: ../models/pet.v1.yaml
+      x-examples:
+        example-1:
+          id: 2
+          name: Dana Elhertani
+          pet:
+            id: 1
+            name: pepper
+            breed: dalmation

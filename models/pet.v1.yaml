@@ -1,0 +1,17 @@
+title: Pet
+type: object
+x-tags:
+  - pet
+description: A single pet.
+properties:
+  id:
+    type: number
+  name:
+    type: string
+  breed:
+    type: string
+x-examples:
+  example-1:
+    id: 1
+    name: pepper
+    breed: dalmation
